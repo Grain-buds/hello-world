@@ -1,6 +1,7 @@
 1、explain执行计划详解
 参考：
-https://blog.csdn.net/wuseyukui/article/details/71512793
+https://blog.csdn.net/wuseyukui/article/details/71512793  
+https://blog.csdn.net/jeromelsj/article/details/89947009
 
 2、explain案例
 https://blog.csdn.net/Dreamhai/article/details/104558854
