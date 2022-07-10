@@ -1,6 +1,10 @@
 Tomcat web.xml详解  
 https://blog.csdn.net/wangxiaotongfan/article/details/51318951
 
+web.xml中配置session属性:  
+https://blog.csdn.net/ch717828/article/details/48542815
+
+
 tomcat配置httponly属性：  
 httponly属性：  
 如果在Cookie中设置了"HttpOnly"属性，那么通过程序(JS脚本、Applet等)将无法读取到Cookie信息，这样能有效的防止XSS攻击  
