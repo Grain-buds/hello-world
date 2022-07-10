@@ -8,24 +8,6 @@ https://blog.csdn.net/Dreamhai/article/details/104558854
 
 总结如下：  
 
-- weid  
-- dsadsa
-
----
-分割线  
-
->dsdsad
-> 
-
-#表达
-
---- 
-
-表头|表头2|4    
---|:--:|--:
-流|打包|的撒
-
-
 1、使用Explain关键字可以模拟优化器执行SQL语句，分析查询语句或是结构的性能瓶颈
 
 2、 Explain 字段详解
