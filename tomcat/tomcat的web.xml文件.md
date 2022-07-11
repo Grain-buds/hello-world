@@ -4,6 +4,9 @@ https://blog.csdn.net/wangxiaotongfan/article/details/51318951
 web.xml中配置session属性:  
 https://blog.csdn.net/ch717828/article/details/48542815
 
+Tomcat实现Session ID的持久化保存实现
+https://blog.csdn.net/xiazdong/article/details/6894945
+
 
 tomcat配置httponly属性：  
 httponly属性：  

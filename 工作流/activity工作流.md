@@ -7,6 +7,9 @@ https://blog.csdn.net/ccblogger/article/details/103073693
 BPMN 2.0规范详解
 https://blog.csdn.net/a123demi/article/details/50674124
 
+bpmn2.0流程定义xml 解析：
+https://blog.csdn.net/qq_16605855/article/details/102853683
+
 activiti与spring集成   
 https://blog.csdn.net/qq_15204179/article/details/83182233
 https://blog.csdn.net/u013066244/article/details/115282398
