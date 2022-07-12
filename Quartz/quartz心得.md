@@ -24,4 +24,6 @@ https://blog.csdn.net/ywg_1994/article/details/80032529
 深入Job、JobDetail、JobDataMap、Trigger:
 https://blog.csdn.net/Evankaka/article/details/45361759
 
+Quartz通过XML配置的方式：
+https://blog.csdn.net/xuforeverlove/article/details/81116697
 
