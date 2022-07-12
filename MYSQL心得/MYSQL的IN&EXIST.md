@@ -7,3 +7,6 @@ https://blog.csdn.net/weixin_39615419/article/details/110585585
 https://blog.csdn.net/fukaiit/article/details/83515439
 
 
+FIND_IN_SET使用方法总结(find_in_set()和in的区别):
+https://blog.csdn.net/c_base_jin/article/details/74358235
+
