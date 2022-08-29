@@ -27,3 +27,9 @@ https://blog.csdn.net/Evankaka/article/details/45361759
 Quartz通过XML配置的方式：
 https://blog.csdn.net/xuforeverlove/article/details/81116697
 
+
+quartz的日志打开&关闭
+https://blog.csdn.net/weixin_30482181/article/details/102130163
+
+
+

@@ -22,3 +22,6 @@ https://blog.csdn.net/qq_36381855/article/details/79752689
 
 ApplicationContextAware应用理解：
 https://blog.csdn.net/pange1991/article/details/81271541
+
+Spring中bean的作用域与生命周期
+https://blog.csdn.net/fuzhongmin05/article/details/73389779
