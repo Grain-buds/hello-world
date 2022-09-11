@@ -49,5 +49,9 @@ https://blog.csdn.net/weixin_42474261/article/details/81540053?utm_medium=distri
 
 要实现语法高亮那么只要在 ``` 之后加上你的编程语言即可（忽略大小写
 
+
+# 字体
+加粗： 要加粗的文字左右分别用两个*号包起来
+
 #参考
 https://www.cnblogs.com/mrwhite2020/p/12906440.html
