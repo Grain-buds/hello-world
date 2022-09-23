@@ -334,6 +334,10 @@ default：由上级标签<beans>的default-autowire属性确定。
 
 ![image-20200428223544334](https://gitee.com/yizhibuerdai/Imagetools/raw/master/images/image-20200428223544334.png)
 
+
+#### 51 注解
+https://blog.csdn.net/Mr_wzc/article/details/119478793
+
 参考：
 
 - 《Spring in action 4》
