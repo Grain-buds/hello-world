@@ -1,5 +1,6 @@
 MyBatis9种动态标签  
 https://blog.csdn.net/m0_46084322/article/details/121884835
+https://www.jb51.net/article/231807.htm
 
 foreach标签实现批量插入：
 https://lusaijie.blog.csdn.net/article/details/72580680
