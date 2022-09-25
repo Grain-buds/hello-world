@@ -279,7 +279,3 @@ java -jar xiaoka-v1.0.jar ———spring.profiles.active=dev
 - https://spring.io/projects/spring-boot
 
 - 百度百科
-
-  ![WechatIMG360](https://gitee.com/yizhibuerdai/Imagetools/raw/master/images/common1.png)
-
-## 
