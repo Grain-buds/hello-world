@@ -12,3 +12,10 @@ https://blog.csdn.net/jjavaboy/article/details/45243565
 但是spring除了实现这些,还配合spring的传播行为对事务进行了更广泛的管理.其实这里还有个重要的点,
 那就是事务中涉及的隔离级别,以及spring如何对数据库的隔离级别进行封装.事务与隔离级别放在一起理解会更好些.
 原文链接：https://blog.csdn.net/weixin_39389888/article/details/95619097
+
+
+
+
+https://zhuanlan.zhihu.com/p/128980187
+https://www.cnblogs.com/yadongliang/p/9382173.html
+https://blog.csdn.net/lgb105/article/details/80461556
