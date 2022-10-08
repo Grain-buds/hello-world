@@ -20,9 +20,7 @@ Dubbo是基于Java的高性能轻量级的RPC分布式服务框架，现已成�
 #### 3.Dubbo提供了哪3个关键功能？
 
 基于接口的远程调用
-
 容错和负载均衡
-
 自动服务注册和发现
 
 
@@ -265,5 +263,5 @@ telnet localhost 20880
 
 参考：http://dubbo.apache.org/en-us/
 
-![WechatIMG360](https://gitee.com/yizhibuerdai/Imagetools/raw/master/images/common1.png)
+
 

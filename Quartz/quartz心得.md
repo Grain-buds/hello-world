@@ -1,8 +1,6 @@
-quartz总体框架:
+quartz&spring的整合配置&quartz总体框架:
 https://blog.csdn.net/qq_38863781/article/details/120262293
 
-quartz&spring的整合配置：
-https://blog.csdn.net/qq_38863781/article/details/120262293
 
 集群部署：
 https://blog.csdn.net/hao134838/article/details/114290501
@@ -22,7 +20,8 @@ https://blog.csdn.net/applebomb/article/details/111962087
 https://blog.csdn.net/ywg_1994/article/details/80032529
 
 深入Job、JobDetail、JobDataMap、Trigger:
-https://blog.csdn.net/Evankaka/article/details/45361759
+https://blog.csdn.net/Evankaka/article/details/45361759  
+https://blog.csdn.net/ScholarTang/article/details/118891297
 
 Quartz通过XML配置的方式：
 https://blog.csdn.net/xuforeverlove/article/details/81116697
