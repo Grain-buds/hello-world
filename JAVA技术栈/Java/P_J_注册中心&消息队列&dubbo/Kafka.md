@@ -161,6 +161,9 @@ Kafka的复制机制既不是完全的同步复制，也不是单纯的异步复
 
 leader会维护一个与其基本保持同步的Replica列表，该列表称为ISR(in-sync Replica)，每个Partition都会有一个ISR，而且是由leader动态维护 ，如果一个follower比一个leader落后太多，或者超过一定时间未发起数据复制请求，则leader将其重ISR中移除 。
 
+**kafa手动提交**
+https://blog.csdn.net/bboy66/article/details/124428788
+
 
 
 #### 参考:
@@ -175,4 +178,4 @@ http://kafka.apache.org/
 
 https://blog.csdn.net/qq_28900249/article/details/90346599
 
-![WechatIMG360](https://gitee.com/yizhibuerdai/Imagetools/raw/master/images/common1.png)
+

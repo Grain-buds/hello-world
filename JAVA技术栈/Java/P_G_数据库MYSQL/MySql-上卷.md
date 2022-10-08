@@ -377,7 +377,8 @@ show index from table_name;
 - 列参与了数学运算或者函数
 - 在字符串like时左边是通配符.比如 %xxx
 - 当mysql分析全表扫描比使用索引快的时候不使用索引.
-- 当使用联合索引,前面一个条件为范围查询,后面的即使符合最左前缀原则,也无法使用索引.
+- 当使用联合索引,前面一个条件为范围查询,后面的即使符合最左前缀原则,也无法使用索引.(https://blog.csdn.net/murongguofu/article/details/126479672)
+
 
 #### 41.MVVC？
 
@@ -578,5 +579,3 @@ InnoDB : 比较麻烦，它执行 count(*) 的时候，需要把数据一行一�
 - 《MySQL必知必会》
 - 极客时间：MySQL实战45讲
 - 百度百科
-
-![WechatIMG360](https://gitee.com/yizhibuerdai/Imagetools/raw/master/images/common1.png)
