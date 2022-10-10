@@ -356,4 +356,15 @@ http://redisdoc.com/
 
 https://www.runoob.com/redis/
 
-![WechatIMG360](https://gitee.com/yizhibuerdai/Imagetools/raw/master/images/common1.png)
+
+常见的redis面试
+https://blog.csdn.net/weixin_40205234/article/details/124614720  
+
+https://mp.weixin.qq.com/s/IyIxAeeumjBNPuoQu1Y3JQ
+
+
+
+缓存更新场景：
+https://vipstone.blog.csdn.net/article/details/108459758
+https://vincent.blog.csdn.net/article/details/78027534
+https://blog.csdn.net/qq_33999844/article/details/81531461
