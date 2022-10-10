@@ -164,7 +164,11 @@ leader会维护一个与其基本保持同步的Replica列表，该列表称为I
 **kafa手动提交**
 https://blog.csdn.net/bboy66/article/details/124428788
 
+kafka分区
+https://mp.weixin.qq.com/s/-BCm6MGyyJdyClNBNpTWdQ
 
+Kafka知识体系
+https://mp.weixin.qq.com/s/RvujZl6Ecm30IupyoH0V6Q
 
 #### 参考:
 
@@ -177,5 +181,6 @@ https://blog.csdn.net/bboy66/article/details/124428788
 http://kafka.apache.org/
 
 https://blog.csdn.net/qq_28900249/article/details/90346599
+
 
 

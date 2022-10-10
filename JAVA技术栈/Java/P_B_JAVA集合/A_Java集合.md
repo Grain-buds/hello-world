@@ -650,7 +650,24 @@ Segment数组的意义就是将一个大的table分割成多个小的table来进
 
 
 
-
+21、Collection.sort排序内部原理  
+事实上Collections.sort方法底层就是调用的Arrays.sort方法。  
+Arrays.sort使用了两种排序方法，
+双轴快速排序（DualPivotQuicksort）：基本类型数据（int,short,long等）排序
+对int、long、float、double四种类型
+当待排序数目小于47，采用插入排序
+当待排序数目小于286，采用双轴快排
+当待排序数目大于286，采用归并排序
+针对short、char两种类型，根据长度选取的排序算法如下
+当待排序数目小于3200，采用标准双轴快排；
+当待排序数目大于3200，采用计数排序（CountingSort）
+针对byte类型，根据长度选取的排序算法如下
+当待排序数目小于29，采用插入排序；
+当待排序数目大于29，采用计数排序（CountingSort）
+优化的归并排序（MergeSort)。对Object类型进行排序。
+TimSort：混用插入排序与归并排序，二分搜索等算法
+https://lux-sun.blog.csdn.net/article/details/120453977
+https://www.cnblogs.com/rekent/archive/2021/03/03/14475083.html
 
 #### 参考：
 
@@ -672,5 +689,5 @@ https://zhuanlan.zhihu.com/p/267545042
 
 https://blog.csdn.net/qq_40434646/article/details/81591239
 
-![WechatIMG360](https://gitee.com/yizhibuerdai/Imagetools/raw/master/images/common1.png)
+
 
