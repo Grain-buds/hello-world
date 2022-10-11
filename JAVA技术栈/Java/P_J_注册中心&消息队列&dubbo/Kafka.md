@@ -139,6 +139,7 @@ Producer 、Broker。
 
 #### 24.kafka消息重复问题？
 
+
 做好幂等。
 
 数据库方面可以（唯一键和主键）避免重复。
@@ -160,6 +161,9 @@ Kafka的复制机制既不是完全的同步复制，也不是单纯的异步复
 #### 27.什么情况下一个 broker 会从 isr中踢出去
 
 leader会维护一个与其基本保持同步的Replica列表，该列表称为ISR(in-sync Replica)，每个Partition都会有一个ISR，而且是由leader动态维护 ，如果一个follower比一个leader落后太多，或者超过一定时间未发起数据复制请求，则leader将其重ISR中移除 。
+
+
+
 
 **kafa手动提交**
 https://blog.csdn.net/bboy66/article/details/124428788
@@ -183,4 +187,31 @@ http://kafka.apache.org/
 https://blog.csdn.net/qq_28900249/article/details/90346599
 
 
+**kafka的消费者流程**：
+消息的消费模型有两种，推送模型（push）和拉取模型（pull）
 
+ consumer采用pull（拉）模式从broker中读取数据。
+ 上面的2种区别：
+  - push（推）模式很难适应消费速率不同的消费者，因为消息发送速率是由broker决定的。它的目标是尽可能以最快速度传递消息，但是这样很容易造成consumer来不及处理消息，典型的表现就是拒绝服务以及网络拥塞。而pull模式则可以根据consumer的消费能力以适当的速率消费消息。
+- pull模式，consumer可自主控制消费消息的速率，同时consumer可以自己控制消费方式。pull模式不足之处是，如果kafka没有数据，消费者可能会陷入循环中，一直等待数据到达。针对这⼀点， Kafka 的消费者在消费数据时会传⼊⼀个时⻓参数 timeout。如果当前没有数据可供消费，Consumer 会等待⼀段时间之后再返回
+
+拉取流程:
+- 确保kafka协调者认可了此次消费，并初始化和协调者的连接。认可很多层次的含义，包括kafka集群是否正常，安全认证是否通过之类。
+- 确保分区被分配，除了手动assgin的topic，partition和offset，自动subscribe需要从kafka协调者获取相关元数据，也是发生重平衡事件的来源。
+- 确保已经获取拉取的offset，否则为从协调者那重新获取对应groupid的offset，如果获取失败（比如这是一个新的groupid），那么会重置offset，根据配置用最旧或者最新来代替。参考`ConsumerCoordinator`
+- 拉取数据，通过拉取每个partition的leader，基于NIO思路拉取数据缓存在内存中；参考`Fetcher`。
+- 提交offset，如果开启自动提交offset的功能，那么消费者会在两个情况同步提交offset，（1）重平衡或者和broker心跳超时，参考流程2；（2）消费者关闭。如果是手动提交的话可以采用异步或者同步两种提交方式
+
+https://blog.csdn.net/qq_34886352/article/details/84303860
+
+
+
+
+分区机制、Partition分区分配策略
+https://blog.csdn.net/m0_65931372/article/details/125971395
+
+segment文件的组成
+https://blog.csdn.net/weixin_70730532/article/details/125219822
+
+
+消息是如何存入segment以及从segment查询消息
