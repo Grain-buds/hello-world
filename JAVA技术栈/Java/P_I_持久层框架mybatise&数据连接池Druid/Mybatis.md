@@ -21,7 +21,8 @@ Mybatis支持枚举吗？
 Mybatis 支持插件或者拦截方法?
 简述 Mybatis 的插件运行原理，以及如何编写一个插件?
 什么是MyBatis的接口绑定？有哪些实现方式？
-Mybatis都有哪些Executor执行器？它们之间的区别是什么
+Mybatis都有哪些Executor执行器？它们之间的区别是什么?
+MyBatis中的statementType有哪些类型，区别是？默认值?
 
 
 
