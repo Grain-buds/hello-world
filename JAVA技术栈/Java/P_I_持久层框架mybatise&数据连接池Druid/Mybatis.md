@@ -1,5 +1,31 @@
 ## Mybatis
 
+什么是Mybatis  
+Mybatis优点?Mybatis缺点  
+Mybatis的核心组件有哪些？分别是？  
+字符#{}和${}的区别是什么？
+Mybatis中9个动态标签是?  
+xml映射文件中，有哪些标签
+Mybatis支持注解吗？优点？缺点？
+Mybatis 是如何进行分页的?分页插件的原理是什么?  
+如何获取自增主键?  
+为什么Mapper接口没有实现类，却能被正常调用?  
+嵌套查询用什么标签?  
+collection 和association的区别？  
+MyBatis里面用到了哪些设计模式？  
+XML中怎么使用特殊符号，比如小于&(转义或者CDATA)  
+Mybatis支持枚举吗？   
+一级缓存的结构?如何开启一级缓存？如何不使用一级缓存？   
+二级缓存和一级缓存的区别,如何使用二级缓存?
+说一下resultMap和resultType？  
+Mybatis 支持插件或者拦截方法?
+简述 Mybatis 的插件运行原理，以及如何编写一个插件?
+什么是MyBatis的接口绑定？有哪些实现方式？
+Mybatis都有哪些Executor执行器？它们之间的区别是什么
+
+
+
+
 #### 1.什么是Mybatis?
 
 MyBatis 是一款优秀的支持自定义 SQL 查询、存储过程和高级映射的持久层框架，消除了 几乎所有的 JDBC 代码和参数的手动设置以及结果集的检索 。 MyBatis 可以使用 XML 或注解进 行配置和映射， MyBatis 通过将参数映射到配置的 SQL 形成最终执行的 SQL 语句 ，最后将执行 SQL 的结果映射成 Java对象返回。
@@ -55,7 +81,7 @@ ${}是字符串替换，#{}是预编译处理。一般用#{}防止 sql注入问�
 #### 9.Mybatis中9个动态标签是？
 
 - if
-- c h o o s e (when 、 oterwise)
+- choose(when 、 oterwise)
 - trim (where、 set)
 - foreach
 - bind
@@ -176,25 +202,36 @@ fetch Type:数据加载方式，可选值为 lazy 和 eager，分别为延迟加
 
 Map 。默认情况下，一级缓存是开启的。< select >标签内加属性flushCache=true。
 
+
+### 一级缓存和二级缓存的区别？
+一级缓存是基于PerpetualCache的hashmap本地缓存，其存储作用域为Session。select的flushCache（清空缓存）默认为false，默认打开一级缓存！  
+二级缓存和一级缓存的机制是相同的，默认也是采用PerpetualCache的hashmap本地缓存，不过他的储存作用于在Mapper，而且可自定义存储源，要开启二级缓存，需要使用二级缓存属性类实现Serializable序列化的接口，可在它的映射文件中配置<cache/>。MyBatis二级缓存和命名空间namespace是绑定的 ，即二级缓存还需要在 Mapper.xml 映射文件中配置或者在 Mapper.java 接口中配置  
+
+全局二级缓存：在 MyBatis 中，二级缓存有全局开关和分开关。
+全局开关，在 MyBatis-config.xml配置，默认是为 true， 即默认开启总开关。
+分开关就是说在 *Mapper.xml 中开启或关闭二级缓存， 默认是不开启的。
+
+缓存数据的更新机制，当某一个作用域（一级缓存session/二级缓存namespace）的进行了c/u/d操作后，默认该作用域下所有select中的缓存将被clear
+
+https://www.cnblogs.com/bwj1234562021/p/14471386.html
+
 #### 24.二级缓存如何配置？
 
 ```xml
 <settings>
 〈 !一其他自己直一 〉
-<setting name=” cacheEnabled” value=” true ” />
+<setting name=”cacheEnabled” value=” true ” />
 </settings>
 ```
 
 这个参数是二级缓存的全局开关，默认值是 true，初始状态 为启用状态 。 如果把这个参数设置为 false，即使有后面 的 二级缓 存配置，也不会生效 。
 
-#### 25.**简述 Mybatis 的插件运行原理，以及如何编写一个插件？**
+1、配置文件开启二级缓存配置
+2、具体的mapper文件配置二级缓存的参数，如过期时间等。
+3、缓存对象实体类实现序列化接口
 
-1）Mybatis 仅可以编写针对 ParameterHandler、ResultSetHandler、StatementHandler、
-Executor 这 4 种接口的插件，Mybatis 通过动态代理，为需要拦截的接口生成代理对象以实
-现接口方法拦截功能，每当执行这 4 种接口对象的方法时，就会进入拦截方法，具体就是
-InvocationHandler 的 invoke()方法，当然，只会拦截那些你指定需要拦截的方法。
-2）实现 Mybatis 的 Interceptor 接口并复写 intercept()方法，然后在给插件编写注解，指定
-要拦截哪一个接口的哪些方法即可，记住，别忘了在配置文件中配置你编写的插件。
+
+https://mikechen.cc/17835.html
 
 #### 26.二级缓存的回收策略有哪些？
 
@@ -207,6 +244,37 @@ LRU(最近最少使用的) : 移除最长时间不被使用的对象，这是默
  SOFT(软引用) : 移除基于垃圾回收器状态和软引用规则的对象 。
 
 WEAK (弱引用) : 更积极地移除基于垃圾收集器状态和弱引用规则的对象 。
+
+
+###一级缓存和二级缓存的使用顺序
+二级缓存 ——> 一级缓存 ——> 数据库
+https://blog.csdn.net/Dream_Weave/article/details/84674643
+
+#### 25.**简述 Mybatis 的插件运行原理，以及如何编写一个插件？**
+
+1）Mybatis 仅可以编写针对 ParameterHandler、ResultSetHandler、StatementHandler、
+Executor 这 4 种接口的插件，Mybatis 通过动态代理，为需要拦截的接口生成代理对象以实
+现接口方法拦截功能，每当执行这 4 种接口对象的方法时，就会进入拦截方法，具体就是
+InvocationHandler 的 invoke()方法，当然，只会拦截那些你指定需要拦截的方法。
+2）实现 Mybatis 的 Interceptor 接口并复写 intercept()方法，然后在给插件编写注解，指定
+要拦截哪一个接口的哪些方法即可，记住，别忘了在配置文件中配置你编写的插件。
+
+
+
+
+###Mybatis 支持插件或者拦截方法
+支持拦截的方法：
+1、执行器Executor（update、query、commit、rollback等方法）
+2、参数处理器ParameterHandler（getParameterObject、setParameters方法）
+3、结果集处理器ResultSetHandler（handleResultSets、handleOutputParameters等方法）
+4、SQL语法构建器StatementHandler（prepare、parameterize、batch、update、query等方法）
+![alt](mybatis插件支持的方法.JPG)
+https://blog.csdn.net/weixin_41387105/article/details/105436424
+
+mybatis执行流程概要
+https://blog.csdn.net/weixin_39494923/article/details/91534658
+![alt](Mybatis执行概要图.JPG)
+Mybatis拦截器用到责任链模式+动态代理+反射机制；
 
 #### 27.Mybatis的Xml文件中id可以重复吗?
 
@@ -250,6 +318,40 @@ Mybatis的动态sql可以在xml映射文件内，以标签的形式编写动态s
 
 https://zhuanlan.zhihu.com/p/60257737
 
+常见知识点总结
+https://blog.csdn.net/weixin_38024782/article/details/110771118
 
-![WechatIMG360](https://gitee.com/yizhibuerdai/Imagetools/raw/master/images/common1.png)
+###什么是MyBatis的接口绑定？有哪些实现方式？
+接口绑定就是在mybatis中任意定义接口，然后把接口里面的方法和sql语句绑定，我们直接调用接口方法就可以，这样比起原来sqlsession提供的方法我们可以有更加灵活的选择和设置！
+有两种实现方式：
+1. 在接口的方法上面加上@select，@update等注解，里面包含sql语句来绑定
+2. 通过xml里面写sql语句来绑定，在这种情况下，要指定xml映射文件里面的namespace必须为接口的全路径名，当sql语句比较简单的时候，用注解绑定，当sql语句比较复杂的时候，用xml绑定，一般使用xml绑定的比较多！
 
+
+###Mybatis都有哪些Executor执行器？它们之间的区别是什么
+mybatis有三种executor执行器，分别为simpleexecutor、reuseexecutor、batchexecutor。
+simpleexecutor执行器：在每执行一次update或select，就开启一个statement对象，用完后就关闭。
+reuseexecutor执行器：在执行update或select时以sql作为key去查找statement，有就直接使用，没有就创建，使用完毕后不关闭，放入Map<String,Statement>中，供下次使用。重复使用statement。
+batchexecutor执行器：执行update（jdbc批处理不支持select），会把所有sql添加到批处理中addbatch（）；等待统一批处理executorbatch（）；它缓存了·多个statement，每一个statement都是addbatch（），后等待进行executorbatch（）批处理。
+作用范围：统一限制在sqlsession生命周期范围内
+
+
+源码解析：
+https://blog.csdn.net/dongbeiou/article/details/107945074
+
+###MyBatis中的statementType
+statementType：标记操作SQL的对象
+取值说明：
+1、STATEMENT:直接操作sql，不进行预编译，获取数据：$—Statement
+2、PREPARED:预处理，参数，进行预编译，获取数据：#—–PreparedStatement:默认
+3、CALLABLE:执行存储过程————CallableStatement
+注意：如果只为STATEMENT，那么sql就是直接进行的字符串拼接，这样如果为字符串需要加上引号，如果为PREPARED，是使用的参数替换，也就是索引占位符，我们的#会转换为?再设置对应的参数的值。
+```sql
+<update id="update4" statementType="STATEMENT">
+    update tb_car set price=${price} where id=${id}
+</update>
+
+<update id="update5" statementType="PREPARED">
+    update tb_car set xh=#{xh} where id=#{id}
+</update>
+```
