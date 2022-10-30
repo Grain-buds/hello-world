@@ -42,3 +42,28 @@ https://zhuanlan.zhihu.com/p/453658511
 https://blog.csdn.net/weixin_44162368/article/details/113243686
 https://blog.csdn.net/chuixue24/article/details/120266994
 https://blog.csdn.net/qq_34486648/article/details/123096102
+
+数据面试总结
+1.6W字 ｜MySQL 精选 60 道面试题
+https://mp.weixin.qq.com/s/0Rahp4jZIngs14HFh2mToQ
+
+100 道 MySQL 数据库经典面试题解析
+https://mp.weixin.qq.com/s/x4tMIQ_vQNwUErNnDWVWdA
+
+数据库双活
+https://mp.weixin.qq.com/s/Pc4oBAfQjt4s5FC4u28yOQ
+
+sql优化
+https://mp.weixin.qq.com/s/H079bJ_HKPPvM0G8fYuLug
+
+MySQL 到 Elasticsearch 实时同步构建数据检索服务的选型与思考
+https://mp.weixin.qq.com/s/FRvJvNjZOd6UOzwudeDI4w
+
+面试官:谈谈你对mysql事务的认识?
+https://zhuanlan.zhihu.com/p/166158027?utm_source=wechat_session&utm_medium=social&utm_oi=847524528732135424&utm_campaign=shareopn
+
+spring事务管理和mysql事务有什么关
+https://www.zhihu.com/question/315000395/answer/2168151662?utm_source=wechat_session&utm_medium=social&utm_oi=847524528732135424&utm_content=group3_Answer&utm_campaign=shareopn
+
+什么是MySQL 事务与 MVCC 原理？
+https://zhuanlan.zhihu.com/p/491303424?utm_source=wechat_session&utm_medium=social&utm_oi=847524528732135424&utm_campaign=shareopn

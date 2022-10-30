@@ -1111,3 +1111,7 @@ corePoolSize设置为0，maxmumPoolSize为Integer.MAX_VALUE。keepAliveTime为60
 
   ![WechatIMG360](https://gitee.com/yizhibuerdai/Imagetools/raw/master/images/common1.png)
 
+
+
+性能优化：
+https://mp.weixin.qq.com/s/VEup6GmcZvCDqnQUyd_dvA
