@@ -45,10 +45,11 @@ https://blog.csdn.net/qq_34486648/article/details/123096102
 
 数据面试总结
 1.6W字 ｜MySQL 精选 60 道面试题
-https://mp.weixin.qq.com/s/0Rahp4jZIngs14HFh2mToQ
+https://mp.weixin.qq.com/s/x4tMIQ_vQNwUErNnDWVWdA
 
 100 道 MySQL 数据库经典面试题解析
-https://mp.weixin.qq.com/s/x4tMIQ_vQNwUErNnDWVWdA
+
+https://mp.weixin.qq.com/s/0Rahp4jZIngs14HFh2mToQ
 
 数据库双活
 https://mp.weixin.qq.com/s/Pc4oBAfQjt4s5FC4u28yOQ
