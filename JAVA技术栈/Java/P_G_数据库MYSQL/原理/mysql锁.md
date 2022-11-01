@@ -7,17 +7,17 @@ https://github.com/hedengcheng/tech/blob/master/database/MySQL/MySQL%20%E5%8A%A0
 https://blog.csdn.net/m1ssyAn/article/details/114672602
 
 一条SQL加锁，可以分9种情况：
-组合一：id列是主键，RC隔离级别
-组合二：id列是二级唯一索引，RC隔离级别
-组合三：id列是二级非唯一索引，RC隔离级别
-组合四：id列上没有索引，RC隔离级别
-组合五：id列是主键，RR隔离级别
-组合六：id列是二级唯一索引，RR隔离级别
-组合七：id列是二级非唯一索引，RR隔离级别
-组合八：id列上没有索引，RR隔离级别
-组合九：Serializable隔离级别
+组合一：id列是主键，RC隔离级别  
+组合二：id列是二级唯一索引，RC隔离级别  
+组合三：id列是二级非唯一索引，RC隔离级别  
+组合四：id列上没有索引，RC隔离级别  
+组合五：id列是主键，RR隔离级别  
+组合六：id列是二级唯一索引，RR隔离级别  
+组合七：id列是二级非唯一索引，RR隔离级别  
+组合八：id列上没有索引，RR隔离级别  
+组合九：Serializable隔离级别  
 
-举例：
+举例：  
 1、select * from t1 where id = 10;
 
 结论:
