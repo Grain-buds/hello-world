@@ -151,7 +151,7 @@ InnoDB 为什么设计 B+ 树索引？
 
 
 
-#数据库的事务
+# 数据库的事务
 ## 事务的隔离级别有哪些？MySQL的默认隔离级别是什么
 读未提交（Read Uncommitted）  
 读已提交（Read Committed）  
