@@ -1269,6 +1269,8 @@ kill 掉这些线程(同时观察 cpu 使用率是否下降)，
 
 利用中间件来做代理，负责对数据库的请求识别出读还是写，并分发到不同的数据库中。（如：amoeba，mysql-proxy）
 
+https://blog.csdn.net/CSDN2497242041/article/details/120905999
+
 88. MySQL的复制原理以及流程
 主从复制原理，简言之，就三步曲，如下：
 
