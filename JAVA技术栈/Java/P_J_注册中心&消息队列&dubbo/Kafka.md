@@ -73,12 +73,26 @@ https://blog.csdn.net/helihongzhizhuo/article/details/80335931
 
 
 
+
+
+
+
 -------------------
 生产者 
 --------------------
 #### 7.什么是Producer（生产者）?
 消息的生产者被称为Producer。
 Producer将消息发送到集群指定的主题中存储，同时也自定义算法决定将消息记录发送到哪个分区?
+
+
+
+
+
+
+
+
+
+
 
 ---------------------------
 kafka实例broker 
@@ -272,3 +286,33 @@ https://blog.csdn.net/weixin_70730532/article/details/125219822
 
 Kafka零拷贝机制
 https://blog.csdn.net/yxf19034516/article/details/108518194
+
+
+
+# 性能
+## kafka中处理超大消息处理
+https://blog.csdn.net/wangshuminjava/article/details/109570175
+
+
+## kafka的分区数量的设置
+假设对于单个partition，producer端的可达吞吐量为p，Consumer端的可达吞吐量为c，期望的目标吞吐量为t，那么集群所需要的partition数量至少为partition数=max(t/p,t/c)
+https://blog.csdn.net/weixin_30376083/article/details/99000063
+https://blog.csdn.net/jack_shuai/article/details/109986355
+https://blog.csdn.net/shijinghan1126/article/details/88373882
+https://blog.csdn.net/xie670705986/article/details/112668310
+https://blog.csdn.net/cqupt2012214390/article/details/105640499
+
+
+
+## topic的最大长度
+主题名称的长度不能超过249个字符
+消息限制大小 默认1M，可修改
+https://blog.csdn.net/ilifei/article/details/123816556
+
+
+每个Broker的Partition数量最好限制在100 × b × r（b是Broker数，r是Partition副本数），滴滴的最佳实践是单节点Parttion不易超过1000个，大量小文件容易导致HDD盘的读写性能下降
+
+https://blog.csdn.net/kafka_zsxq/article/details/121696281
+
+## topic的过期时间
+https://blog.csdn.net/Little_fxc/article/details/98494263
