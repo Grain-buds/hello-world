@@ -1,4 +1,6 @@
-https://lupengfei.blog.csdn.net/article/details/113405031#t10
+
+
+
 # 8. SQL 优化
 ## 如何定位及优化SQL语句的性能问题？
 对于低性能的SQL语句的定位，最重要也是最有效的方法就是使用执行计划，MySQL提供了EXPLAIN命令来查看语句的执行计划。
@@ -372,3 +374,6 @@ salve开启一个I/O Thread，该线程在master打开一个普通连接，主�
 
 第三步：
 SQL Thread会读取中继日志，并顺序执行该日志中的SQL事件，从而与主数据库中的数据保持一致。
+
+
+https://lupengfei.blog.csdn.net/article/details/113405031#t10
