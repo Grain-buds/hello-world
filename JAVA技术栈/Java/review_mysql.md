@@ -1,3 +1,10 @@
+# 总览
+<a href='#InnoDB引擎的4大特性'>InnoDB引擎的4大特性</a> 
+
+
+
+
+
 # 数据库连接池
 # 数据库架构Serve层
 
@@ -5,7 +12,7 @@
  
 # mysql的innodb引擎
 InnoDB引擎中的索引策略
-## InnoDB引擎的4大特性
+## InnoDB引擎的4大特性 <a name='InnoDB引擎的4大特性'></a>
 － 插入缓冲（insert buffer)  
 － 二次写(double write)  
 － 自适应哈希索引(ahi)  
