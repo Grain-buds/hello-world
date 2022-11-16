@@ -8,7 +8,16 @@ https://blog.csdn.net/weixin_51095543/article/details/125287604
 redis的集群：
 https://blog.csdn.net/truelove12358/article/details/79612954
 
+## 分布式锁
+基于数据库的分布式锁
+https://blog.csdn.net/qq_45473377/article/details/122986872
+https://blog.csdn.net/lovexiaotaozi/article/details/83819916
 
+## redis的分布锁
+https://blog.csdn.net/ZYJ95959595/article/details/105527454
+
+## RedLock
+https://blog.csdn.net/qq_44833552/article/details/123987308
 
 ## jedis的源码总结
 
