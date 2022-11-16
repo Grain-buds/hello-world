@@ -1,5 +1,19 @@
 # 总览
-<a href='#InnoDB引擎的4大特性'>InnoDB引擎的4大特性</a> 
+<a href='#InnoDB引擎的4大特性'>InnoDB引擎的4大特性</a>   
+<a href='#InnoDB与MyISAM的区别'>InnoDB与MyISAM的区别</a>   
+<a href='#一条Sql的执行顺序'>一条Sql的执行顺序</a>   
+<a href='#mysql中in 和exists的区别'>mysql中in 和exists的区别</a>   
+<a href='#mysql自增主键用完了怎么办'>mysql自增主键用完了怎么办</a>   
+<a href='#主键使用自增ID还是UUID，为什么'>主键使用自增ID还是UUID，为什么</a>   
+<a href='#如何选择合适的分布式主键方案呢'>如何选择合适的分布式主键方案呢</a>   
+<a href='#MySQL索引使用有哪些注意事项呢？'>MySQL索引使用有哪些注意事项呢？</a>   
+<a href='#索引的最左前缀原则'>索引的最左前缀原则</a>   
+<a href='#索引的最左前缀原则的索引'>索引的最左前缀原则的索引</a>   
+<a href='#数据库索引的原理，为什么要用B+树，为什么不用二叉树？'>数据库索引的原理，为什么要用B+树，为什么不用二叉树？</a>   
+<a href='#聚集索引与非聚集索引的区别'>聚集索引与非聚集索引的区别</a>   
+<a href='#事务的隔离级别有哪些？MySQL的默认隔离级别是什么'>事务的隔离级别有哪些？MySQL的默认隔离级别是什么</a>   
+<a href='#什么是幻读，脏读，不可重复读呢'>什么是幻读，脏读，不可重复读呢</a>   
+<a href='#在高并发情况下，如何做到安全的修改同一行数据'>在高并发情况下，如何做到安全的修改同一行数据</a>   
 
 
 
@@ -18,7 +32,7 @@ InnoDB引擎中的索引策略
 － 自适应哈希索引(ahi)  
 － 预读(read ahead)  
 
-## 5、InnoDB与MyISAM的区别
+## 5、InnoDB与MyISAM的区别<a name='InnoDB与MyISAM的区别'></a>
 InnoDB支持事务，MyISAM不支持事务  
 InnoDB支持外键，MyISAM不支持外键  
 InnoDB 支持 MVCC(多版本并发控制)，MyISAM 不支持  
@@ -34,13 +48,13 @@ InnoDB 存储引擎提供了具有提交、回滚、崩溃恢复能力的事务�
 
 # 基础相关
 关系型和非关系型数据库的区别?  
-## 76、一条Sql的执行顺序？
+## 76、一条Sql的执行顺序？ <a name='一条Sql的执行顺序'></a>
 https://mmbiz.qpic.cn/mmbiz_png/sMmr4XOCBzHb5ZvMdLOvjicVicD6zLAPaBnvtjO3z2ib7Ra6yLolqghUw8C6NHRTe2PiaxD9ibP2fBTpLGgaF2xzIBQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1  
 详细描述一条 MySQL 语句执行的步骤   
 
 Blob和text有什么区别
 
-## mysql中in 和exists的区别   
+## mysql中in 和exists的区别  <a name='mysql中in 和exists的区别'></a>
 ```
 select * from A where deptId in (select deptId from B);
 
@@ -50,21 +64,21 @@ exist: 查询的理解就是，先执行主查询，获得数据后，再放到�
 in :  先查询子查询，在查询主查询(最外层查询)  
 因此，要选择最外层循环小的，如果B的数据量小于A，适合使用in，如果B的数据量大于A，即适合选择exists  
 
-## 数据库自增主键可能遇到什么问题
+## 数据库自增主键可能遇到什么问题  
 - 使用自增主键对数据库做分库分表，可能出现诸如主键重复等的问题。解决方案的话，简单点的话可以考虑使用UUID
 - 自增主键会产生表锁，从而引发问题  
 - 自增主键可能用完问题。  
 
-## 80、mysql自增主键用完了怎么办？
+## 80、mysql自增主键用完了怎么办？<a name='mysql自增主键用完了怎么办'></a>
 自增主键一般用int类型(2^31-1 = 2147483647,20亿)，
 可以考虑提前分库分表,int类型设置为无符号
 
-## 79、主键使用自增ID还是UUID，为什么
+## 79、主键使用自增ID还是UUID，为什么<a name='主键使用自增ID还是UUID，为什么></a>
 如果是单机的话，选择自增ID；如果是分布式系统，优先考虑UUID吧，但还是最好自己公司有一套分布式唯一ID生产方案吧。  
 自增ID：数据存储空间小，查询效率高。但是如果数据量过大,会超出自增长的值范围，多库合并，也有可能有问题。  
 uuid：适合大量数据的插入和更新操作，但是它无序的，插入数据效率慢，占用空间大。  
  
-## 如何选择合适的分布式主键方案呢
+## 如何选择合适的分布式主键方案呢<a name='如何选择合适的分布式主键方案呢></a>
 - snowflake算法
 - 数据库自增长序列或字段。
 - UUID。
