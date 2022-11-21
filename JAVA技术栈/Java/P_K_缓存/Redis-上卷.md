@@ -430,4 +430,3 @@ Tips:当判断一定存在时，可能会误判，当判断不存在时，就一
 - https://redis.io/
 - 百度百科
 
-![WechatIMG360](https://gitee.com/yizhibuerdai/Imagetools/raw/master/images/common1.png)
