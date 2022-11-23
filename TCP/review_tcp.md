@@ -72,14 +72,15 @@ ACK 是累积的，一个确认字节号 N 的 ACK 表示所有直到 N 的字�
 
 三次握手：
 
-图片
+![alt](三次握手流程.png)
+
+
+1、客户端发送一个SYN段，并指明客户端的初始序列号，即ISN(c).
+2、服务端发送自己的SYN段作为应答，同样指明自己的ISN(s)。为了确认客户端的SYN，将ISN(c)+1作为ACK数值。这样，每发送一个SYN，序列号就会加1. 如果有丢失的情况，则会重传。
+3、为了确认服务器端的SYN，客户端将ISN(s)+1作为返回的ACK数值。
 
 假设 A 为客户端，B 为服务器端。
-
 首先 B 处于 LISTEN（监听）状态，等待客户的连接请求。
-
-
-
 A 向 B 发送连接请求报文，SYN=1，ACK=0，选择一个初始的序号 x。
 
 B 收到连接请求报文，如果同意建立连接，则向 A 发送连接确认报文，SYN=1，ACK=1，确认号为 x+1，同时也选择一个初始的序号 y。
@@ -150,7 +151,12 @@ B 收到 A 的确认后，连接建立。
 
 四次挥手：
 
-图片
+![alt](4次释放.png)
+
+1、客户端发送一个FIN段，并包含一个希望接收者看到的自己当前的序列号K. 同时还包含一个ACK表示确认对方最近一次发过来的数据。
+2、服务端将K值加1作为ACK序号值，表明收到了上一个包。这时上层的应用程序会被告知另一端发起了关闭操作，通常这将引起应用程序发起自己的关闭操作。
+3、服务端发起自己的FIN段，ACK=K+1, Seq=L
+4、客户端确认。ACK=L+1
 
 客户端发送一个 FIN 段，并包含一个希望接收者看到的自己当前的序列号 K. 同时还包含一个 ACK 表示确认对方最近一次发过来的数据。
 
@@ -164,23 +170,13 @@ B 收到 A 的确认后，连接建立。
 
 为什么建立连接是三次握手，而关闭连接却是四次挥手呢？
 
-
-
 1、TCP连接是双向传输的对等的模式，就是说双方都可以同时向对方发送或接收数据。当有一方要关闭连接时，会发送指令告知对方，我要关闭连接了。
-
-
 
 2、这时对方会回一个ACK，此时一个方向的连接关闭。但是另一个方向仍然可以继续传输数据，也就是说，服务端收到客户端的 FIN 标志，知道客户端想要断开这次连接了，但是，我服务端，我还想发数据呢？我等到发送完了所有的数据后，会发送一个 FIN 段来关闭此方向上的连接。接收方发送 ACK确认关闭连接。
 
-
-
 注意，接收到FIN报文的一方只能回复一个ACK, 它是无法马上返回对方一个FIN报文段的，因为结束数据传输的“指令”是上层应用层给出的，我只是一个“搬运工”，我无法了解“上层的意志”。
 
-
-
 3、客户端发送了 FIN 连接释放报文之后，服务器收到了这个报文，就进入了 CLOSE-WAIT 状态。这个状态是为了让服务器端发送还未传送完毕的数据，传送完毕之后，服务器会发送 FIN 连接释放报文。
-
-
 
 4、因为服务端在 LISTEN 状态下，收到建立连接请求的 SYN 报文后，把 ACK 和 SYN 放在一个报文里发送给客户端。而关闭连接时，当收到对方的 FIN 报文时，仅仅表示对方不再发送数据了但是还能接收数据，己方是否现在关闭发送数据通道，需要上层应用来决定，因此，己方 ACK 和 FIN 一般都会分开发。
 
@@ -462,3 +458,35 @@ TCP 文件传输中，大多数是每两个数据段返回一次确认应答。
 https://mp.weixin.qq.com/s/SZ8XcOzZCVJG_P1_O4OtWQ
 
 https://www.cnblogs.com/qcrao-2018/p/10182185.html
+
+https://blog.csdn.net/cpongo4/article/details/89948743
+
+全连接队列和半连接队列：
+1、TCP三次握手时，Linux维护了全连接和半连接两个队列
+2、在全连接队列满的时候丢弃策略根据tcp_abort_on_overflow的配置执行
+3、全连接队列大小会取Linux系统配置和应用配置中的最小值
+4、Linux 中的backlog 就是我们所说的全连接队列大小
+5、应用部署时记得检查全连接队列是否正确配置
+
+backlog配置
+
+Tomcat AbstractEndpoint默认参数是100，如果使用独立Tomcat配置了 server.xml，其实 connector 中 acceptCount 最终是 backlog的值。而使用Spring Boot内置Tomcat记得配置server.tomcat.accept-count参数，否则默认值就是
+Nginx 配置 server{ listen 8080 default_server backlog=512}
+Redis 配置redis.conf文件 tcp-backlog 511参数
+
+原文链接：https://blog.csdn.net/luqiang81191293/article/details/107217189
+https://blog.csdn.net/crazymakercircle/article/details/125947088
+
+
+
+为什么要存在半连接队列:
+1、根据TCP协议三次握手的特点，会存在半连接的网络攻击存在，syn攻击(syn flood泛洪),半连接队列, 是解决 syn flood洪泛的 一个关键措施，再配合syn_cookie机制，尽量抵御这种半连接攻击的风险。
+
+为什么要存在全连接队列:
+
+https://blog.csdn.net/LIFE_PLAN/article/details/125014851
+
+TCP/IP协议栈在Linux内核中的运行时序
+https://blog.csdn.net/flynetcn/article/details/120068131
+
+![alt](linux网络消息路径.png)
