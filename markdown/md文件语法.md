@@ -53,5 +53,16 @@ https://blog.csdn.net/weixin_42474261/article/details/81540053?utm_medium=distri
 # 字体
 加粗： 要加粗的文字左右分别用两个*号包起来
 
+# 脚注
+脚注（footnote）
+
+实现方式如下：
+hello[^hello] 
+
+测试
+
+[^hello]:hi
+
+
 #参考
 https://www.cnblogs.com/mrwhite2020/p/12906440.html
