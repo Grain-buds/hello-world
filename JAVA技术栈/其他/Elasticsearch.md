@@ -34,6 +34,7 @@ Windows下进入ES文件夹的bin目录下，点击ElasticSearch.bat开始运行
 Lucene 从 4+ 版本后开始大量使用的数据结构是 FST。FST 有两个优点：
 1）空间占用小。通过对词典中单词前缀和后缀的重复利用，压缩了存储空间；
 2）查询速度快。O(len(str)) 的查询时间复杂度。
+参考：https://zhuanlan.zhihu.com/p/366849553
 
 #### 6. ES是如何实现master选举的？
 
