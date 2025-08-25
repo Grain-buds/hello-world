@@ -699,3 +699,12 @@ RedLock的实现步骤:如下
 可以使用阿里的canal将binlog日志采集发送到MQ队列里面
 然后通过ACK机制确认处理这条更新消息，删除缓存，保证数据缓存一致性
 
+
+### Redis 的 Key 存储机制
+Redis 使用 哈希表（Hash Table） 存储 Key-Value 数据，其底层实现决定了 Key 的最大数量。
+* 理论最大 Key 数：2^32 ≈ 42.9 亿（受限于 Redis 哈希表大小）。
+* Key 的最大长度：512MB（但实际业务中 Key 通常较短） 
+Redis 的哈希表使用 无符号 32 位整数 存储键值对的数量，因此理论上最多可以存储 2^32 个 Key
+### redis的bigKey 如何治理
+
+【bigkey】https://www.cnblogs.com/xiaobaicai12138/p/17792485.html
