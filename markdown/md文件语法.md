@@ -71,7 +71,7 @@ hello[^hello]
 [^hello]:hi
 
 # 相对目录跳转
-[sql语句的执行流程？](/JAVA技术栈/Java/P_G_数据库MYSQL/MySql-上卷.md)  
+[sql语句的执行流程？](/MYSQL/MySql-上卷.md)  
 
 #参考
 https://www.cnblogs.com/mrwhite2020/p/12906440.html
