@@ -157,7 +157,7 @@ select order_num orderNum
 
 二、通过<resultMap>做映射
 
-​    <result property = “order_Num" column =”order_num"/>
+ <result property = “order_Num" column =”order_num"/>
 
 三、如果是驼峰注解用17问的方式。
 
