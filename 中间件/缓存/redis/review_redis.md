@@ -104,6 +104,7 @@ Set（集合）
 - 有序集合的有序如何实现的:  
 1、当有序集合的元素个数小于zset-max-ziplist-entries（默认为128个），并且每个元素成员的长度小于zset-max-ziplist-value（默认为64字节）,使用压缩列表;  每个集合元素由两个紧挨在一起的两个压缩列表结点组成，其中第一个结点保存元素的成员，第二个结点保存元素的分支。压缩列表中的元素按照分数从小到大依次紧挨着排列，有效减少了内存空间的使用
 2、当有序集合的元素个数大于等于zset-max-ziplist-entries（默认为128个），或者每个元素成员的长度大于等于zset-max-ziplist-value（默认为64字节）的时候，使用跳跃表+哈希表作为有序集合的内部实现;当条件不满足时，压缩列表可以转换为跳跃表，但跳跃表不能转换为压缩列表。  
+3、实现方式：压缩列表（ziplist）实现 Hash 类型的核心逻辑是：将 Hash 的 “键（field）- 值（value）” 对，以 “field 元素 + value 元素” 的顺序交替存入 ziplist 中—— 本质是用线性连续的内存结构，按 “field1 → value1 → field2 → value2 → ...” 的顺序存储所有键值对
 https://www.cnblogs.com/WJ5888/p/4516782.html
 https://blog.csdn.net/weixin_42002747/article/details/115598516?spm=1001.2101.3001.6650.11&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-11-115598516-blog-123549890.pc_relevant_recovery_v2&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-11-115598516-blog-123549890.pc_relevant_recovery_v2&utm_relevant_index=12  
 
