@@ -24,6 +24,7 @@
 
 ## MYSQL 的表级别的锁详细介绍
 
+
 ### 表锁
 * 表共享读锁（read lock）
 * 表独占写锁（write lock）
