@@ -6,12 +6,14 @@
 ## Agent系统的框架
 
 ## 应用层优化
-
+### 意图识别稳定性优化
+* 存在那些问题
+  * 
 
 
 ### function_call稳定性
 * 存在问题
-  * 参数和schema命名不一致、参数缺少、参数类型错误、不存在的函数名、日期格式不对、
+  * 模型输出的内容包括内容输出参数和schema命名不一致、内容输出参数缺少、内容输出参数类型错误、内容输出不存在的函数名、内容输出日期格式不对等
 * schema 不规范
   * 函数名
   * 参数名
@@ -34,9 +36,18 @@
   * Retry重试机制
   * Reflection反馈给模型
 
+[阿里云function_call调优](https://help.aliyun.com/zh/model-studio/qwen-function-calling?spm=a2c4g.11186623.help-menu-2400256.d_0_1_8_1.43424e66Fpf4zR&scm=20140722.H_2862208._.OR_help-T_cn~zh-V_1)
+
 #### function_call底层的原理
 
 
 
 ## LLM大模型优化
+### 模型升级
+  * 
+### 模型训练
+  * 模型微调
+    * SFT
+  * 
+
 
